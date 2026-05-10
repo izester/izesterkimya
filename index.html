@@ -110,6 +110,31 @@
         .footer-links { margin-top: 15px; font-size: 12px; }
         .footer-links a { color: #555; text-decoration: none; margin: 0 10px; transition: 0.3s;}
         .footer-links a:hover { color: var(--acik-mavi); }
+
+        /* MOBİL UYUM (RESPONSIVE) AYARLARI */
+        @media screen and (max-width: 768px) {
+            section { padding: 100px 5% 50px 5%; }
+            header { flex-direction: column; padding: 15px 10px; position: static; }
+            .logo-box img { height: 50px; }
+            .logo-box .iz { font-size: 24px; }
+            .logo-box .ester { font-size: 12px; }
+            nav ul { flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 15px; }
+            nav ul li { margin-left: 0; margin-bottom: 5px; }
+            nav ul li a { font-size: 11px; padding: 5px; }
+            #home h1 { font-size: 32px; line-height: 1.2; }
+            #home .slogan { font-size: 28px; margin-bottom: 20px; }
+            .btn-main { padding: 12px 25px; font-size: 14px; }
+            .section-title { font-size: 28px; margin-bottom: 30px; }
+            .about-container { grid-template-columns: 1fr; gap: 30px; }
+            .process-grid, .stats-grid, .hr-grid { grid-template-columns: 1fr; }
+            .sertifika-kart { width: 100%; max-width: 300px; box-sizing: border-box; }
+            .paydas-grid { gap: 30px; }
+            .paydas-logo img { max-width: 120px; }
+            .ulke-etiketler { flex-direction: column; align-items: center; }
+            .ulke-etiket { width: 80%; text-align: center; box-sizing: border-box; }
+            #iletisim { padding: 40px 5%; }
+            .footer-links a { display: block; margin: 10px 0; }
+        }
     </style>
 </head>
 <body>
