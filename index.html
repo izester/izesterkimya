@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İz-Ester Kimya | Yerli ve Sürdürülebilir Üretim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --lacivert: #1a2b4c;
+            --vurgu-mavi: #3b5b9d;
+            --acik-mavi: #e8f0fe;
+            --krem: #f9f9f6;
+            --beyaz: #ffffff;
+            --metin: #2c3e50;
+            --gri: #7f8c8d;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; color: var(--metin); background-color: var(--beyaz); line-height: 1.7; overflow-x: hidden;}
+
+        header { background-color: var(--lacivert); padding: 15px 80px; position: fixed; width: 100%; top: 0; z-index: 2000; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        
+        .logo-box { text-decoration: none; display: flex; align-items: center;}
+        .logo-box img { height: 75px; margin-right: 15px; object-fit: contain; } 
+        .logo-text { display: flex; align-items: flex-end; }
+        .logo-box .iz { font-family: 'Playfair Display', serif; color: var(--acik-mavi); font-size: 32px; font-weight: 700; line-height: 1; letter-spacing: -1px;}
+        .logo-box .ester { font-family: 'Montserrat', sans-serif; color: var(--beyaz); font-size: 16px; font-weight: 300; margin-left: 4px; letter-spacing: 1px; text-transform: uppercase; padding-bottom: 2px;}
+
+        nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { color: var(--beyaz); text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; transition: color 0.3s; }
+        nav ul li a:hover { color: var(--acik-mavi); }
+
+        .section-reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .section-reveal.active { opacity: 1; transform: translateY(0); }
+
+        section { padding: 100px 10% 80px 10%; box-sizing: border-box; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 42px; color: var(--lacivert); margin-bottom: 50px; text-align: center; position: relative; z-index: 2; }
+        .section-title::after { content: ''; width: 60px; height: 4px; background-color: var(--vurgu-mavi); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); }
+
+        #home { background: linear-gradient(rgba(26, 43, 76, 0.85), rgba(26, 43, 76, 0.85)), url('arkaplan.jpg'); background-size: cover; background-position: center; color: var(--beyaz); text-align: center; align-items: center; min-height: 100vh;}
+        #home h1 { font-family: 'Playfair Display', serif; font-size: 64px; margin-bottom: 10px; }
+        
+        /* ESTETİK SLOGAN TASARIMI */
+        #home .slogan { font-family: 'Great Vibes', cursive; font-size: 48px; color: var(--acik-mavi); margin-bottom: 40px; font-weight: 400; text-transform: none; letter-spacing: 1px;}
+        
+        .btn-main { padding: 15px 45px; background-color: var(--acik-mavi); color: var(--lacivert); text-decoration: none; font-weight: 700; border-radius: 5px; transition: 0.3s; text-transform: uppercase; }
+        .btn-main:hover { background-color: var(--beyaz); transform: translateY(-3px); }
+
+        #about { background-color: var(--krem); }
+        .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-image { text-align: center; }
+        .about-image img { width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s; cursor: pointer;}
+        .about-image img:hover { transform: scale(1.02); box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
+        .about-text h3 { color: var(--vurgu-mavi); font-size: 28px; margin-bottom: 20px; }
+        .card { background: var(--beyaz); padding: 25px; border-radius: 10px; margin-top: 20px; border-left: 5px solid var(--lacivert); }
+        .card h4 { margin-top: 0; color: var(--lacivert); }
+
+        #sertifikalar { background-color: var(--beyaz); text-align: center; min-height: 60vh;}
+        .sertifika-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 20px; }
+        .sertifika-kart { background: var(--krem); padding: 30px; border-radius: 10px; border: 2px solid var(--acik-mavi); width: 250px; transition: transform 0.3s; }
+        .sertifika-kart:hover { transform: translateY(-5px); border-color: var(--vurgu-mavi); }
+        .sertifika-kart h4 { color: var(--lacivert); font-size: 24px; margin: 0 0 10px 0; font-weight: 700; }
+        .sertifika-kart p { font-size: 15px; margin: 0; font-weight: 600;}
+
+        #process { background-color: var(--krem); min-height: 60vh;}
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .process-box { background-color: var(--beyaz); padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.03);}
+
+        #paydaslar { background-color: var(--beyaz); text-align: center; min-height: 50vh;}
+        .paydas-grid { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 60px; margin-top: 40px; }
+        .paydas-logo img { max-width: 180px; max-height: 80px; object-fit: contain; filter: grayscale(100%) opacity(70%); transition: all 0.4s ease; }
+        .paydas-logo img:hover { filter: grayscale(0%) opacity(100%); transform: scale(1.1); }
+
+        #kuresel { 
+            background: linear-gradient(rgba(26, 43, 76, 0.88), rgba(26, 43, 76, 0.95)), url('harita.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-attachment: fixed; 
+            color: var(--beyaz); 
+            text-align: center; 
+            min-height: 70vh;
+            position: relative;
+        }
+        #kuresel .section-title { color: var(--beyaz); }
+        .kuresel-icerik { max-width: 800px; margin: 0 auto; font-size: 18px; line-height: 1.8; position: relative; z-index: 2;}
+        .ulke-etiketler { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 40px; }
+        .ulke-etiket { background: rgba(255,255,255,0.1); padding: 12px 30px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.3); font-weight: 600; letter-spacing: 1px; transition: 0.3s; backdrop-filter: blur(5px);}
+        .ulke-etiket:hover { background: var(--acik-mavi); color: var(--lacivert); transform: translateY(-3px);}
+
+        #economy { background-color: var(--krem); color: var(--metin); min-height: 60vh;}
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center; }
+        .stat-item .value { font-size: 48px; font-weight: 700; display: block; margin-bottom: 10px; color: var(--lacivert); }
+
+        #kariyer { background-color: var(--beyaz); text-align: center; min-height: auto; padding-bottom: 50px;}
+        .hr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px;}
+        .hr-card { background: var(--krem); padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--vurgu-mavi);}
+        .hr-card h4 { color: var(--lacivert); font-size: 18px; margin-top:0;}
+        
+        #iletisim { background-color: var(--lacivert); color: var(--beyaz); text-align: center; min-height: auto; padding: 60px 10%; border-top: 1px solid rgba(255,255,255,0.1);}
+        #iletisim .section-title { color: var(--beyaz); margin-bottom: 30px; font-size: 32px; }
+        .iletisim-info { font-size: 18px; line-height: 2; }
+        .iletisim-info a { color: var(--acik-mavi); text-decoration: none; font-weight: bold; }
+        .iletisim-info a:hover { text-decoration: underline; }
+
+        footer { background-color: #0b1325; color: #777; text-align: center; padding: 40px 20px; font-size: 14px; }
+        .footer-logo img { height: 70px; filter: brightness(0) invert(1); opacity: 0.6; margin-bottom: 20px; transition: opacity 0.3s; object-fit: contain; }
+        .footer-logo img:hover { opacity: 0.9; }
+        .footer-links { margin-top: 15px; font-size: 12px; }
+        .footer-links a { color: #555; text-decoration: none; margin: 0 10px; transition: 0.3s;}
+        .footer-links a:hover { color: var(--acik-mavi); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#home" class="logo-box">
+            <img src="logo.png" alt="İz-Ester Fabrika Logosu">
+            <div class="logo-text">
+                <span class="iz">İz</span>
+                <span class="ester">-Ester Kimya</span>
+            </div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#about">Kurumsal</a></li>
+                <li><a href="#sertifikalar">Kalite</a></li>
+                <li><a href="#process">Tesis</a></li>
+                <li><a href="#paydaslar">Paydaşlar</a></li>
+                <li><a href="#kuresel">Küresel Ağ</a></li>
+                <li><a href="#economy">Yatırım</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>TÜRKİYE'NİN YERLİ ETİL ASETAT ÜRETİCİSİ</h1>
+        <div class="slogan">"Kimyanın en saf izi"</div>
+        <p>Yüksek kalite standartları, yenilikçi üretim teknolojileri ve sürdürülebilir çevre politikaları ile kimya sanayisine yön veriyoruz.</p>
+        <a href="#about" class="btn-main">Tesisimizi Keşfedin</a>
+    </section>
+
+    <section id="about" class="section-reveal">
+        <h2 class="section-title">Kurumsal Kimliğimiz</h2>
+        <div class="about-container">
+            <div class="about-image">
+                <a href="https://www.google.com/maps/search/%C3%87erke%C5%9Fli+Mahallesi,+%C5%9Eafak+T%C3%BCrkay+Caddesi+No:2%2F1,+41480+Dilovas%C4%B1+Kocaeli/@40.8121049,29.5567689,17z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" title="Haritada Görüntüle">
+                    <img src="tesis.jpg" alt="İz-Ester Tesis Görüntüsü">
+                </a>
+                <p style="font-size: 0.85em; color: var(--gri); margin-top: 10px;">📍 Tesisi haritada görmek için görsele tıklayın.</p>
+            </div>
+            <div class="about-text">
+                <h3>Sürdürülebilir ve Verimli Üretim</h3>
+                <p>Kocaeli / Dilovası'nda bulunan modern tesisimizle; sürdürülebilirlik, kalite ve verimliliği temel alan, çevreye ve topluma duyarlı bir üretim anlayışını benimsiyoruz.</p>
+                <div class="card">
+                    <h4>Misyonumuz</h4>
+                    <p>Etil asetat üretim sürecini, sürdürülebilirlik ilkeleri ve yüksek kalite standartları çerçevesinde yürütmek; en uygun ve etkin üretim yönetimi ile güvenilir tedarik sağlamaktır.</p>
+                </div>
+                <div class="card">
+                    <h4>Vizyonumuz</h4>
+                    <p>Çevreye duyarlı üretim yaklaşımı, güçlü kalite anlayışı ve verimli proses tasarımlarıyla sektörde güvenilirliği temsil eden öncü bir kuruluş olmaktır.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sertifikalar" class="section-reveal">
+        <h2 class="section-title">Kalite ve Güvence</h2>
+        <p>Üretimimizin her aşamasında uluslararası standartlara tavizsiz uyum sağlıyoruz.</p>
+        <div class="sertifika-grid">
+            <div class="sertifika-kart">
+                <h4>ISO 9001</h4>
+                <p>Kalite Yönetim Sistemi</p>
+            </div>
+            <div class="sertifika-kart">
+                <h4>ISO 14001</h4>
+                <p>Çevre Yönetim Sistemi</p>
+            </div>
+            <div class="sertifika-kart">
+                <h4>ISO 45001</h4>
+                <p>İş Sağlığı ve Güvenliği</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="section-reveal">
+        <h2 class="section-title">Teknik Kapasite ve Proses Tasarımı</h2>
+        <div class="process-grid">
+            <div class="process-box">
+                <h3>Üretim Metodu</h3>
+                <p>Tesisimizde <strong>Fischer Esterifikasyonu</strong> yöntemi ile global standartlarda üretim yapılmaktadır.</p>
+                <ul>
+                    <li><strong>Yıllık Kapasite:</strong> 65.000 Ton</li>
+                    <li><strong>Ürün Saflığı:</strong> %99,78 (a/a)</li>
+                </ul>
+            </div>
+            <div class="process-box">
+                <h3>Modern Reaktör Teknolojisi</h3>
+                <ul>
+                    <li><strong>Tip:</strong> CSTR (Sürekli Karıştırmalı Tank Reaktör)</li>
+                    <li><strong>Hacim:</strong> 7,68 m³</li>
+                    <li><strong>Malzeme:</strong> AISI 316 Kalite Paslanmaz Çelik</li>
+                    <li><strong>Katalizör:</strong> Sülfürik Asit</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="paydaslar" class="section-reveal">
+        <h2 class="section-title">Kurumsal Paydaşlarımız</h2>
+        <p style="margin-bottom: 20px;">Sektörün öncü markalarına yüksek saflıkta etil asetat tedarik etmekten gurur duyuyoruz.</p>
+        <div class="paydas-grid">
+            <div class="paydas-logo"><img src="loreal.png" alt="L'Oréal Logo"></div>
+            <div class="paydas-logo"><img src="henkel.png" alt="Henkel Logo"></div>
+            <div class="paydas-logo"><img src="unilever.png" alt="Unilever Logo"></div>
+            <div class="paydas-logo"><img src="dyo.png" alt="DYO Logo" style="max-height: 60px;"></div>
+        </div>
+    </section>
+
+    <section id="kuresel" class="section-reveal">
+        <h2 class="section-title">Küresel Ağımız</h2>
+        <div class="kuresel-icerik">
+            <p>Türkiye pazarındaki güçlü konumumuzun yanı sıra, yüksek saflıktaki etil asetat ürünlerimizi <strong>Avrupa Birliği</strong> başta olmak üzere uluslararası pazarlara güvenle ihraç ediyoruz.</p>
+            <div class="ulke-etiketler">
+                <span class="ulke-etiket">Avrupa Birliği</span>
+                <span class="ulke-etiket">Belçika</span>
+                <span class="ulke-etiket">İtalya</span>
+                <span class="ulke-etiket">Japonya</span>
+                <span class="ulke-etiket">Endonezya</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="economy" class="section-reveal">
+        <h2 class="section-title" style="color: var(--lacivert);">Ekonomik Gücümüz ve Yatırımımız</h2>
+        <div class="stats-grid">
+            <div class="stat-item"><span class="value">142 M TL</span><span class="label">Toplam Tesis Yatırımı</span></div>
+            <div class="stat-item"><span class="value">35.2 M TL</span><span class="label">Öngörülen Yıllık Net Kâr</span></div>
+            <div class="stat-item"><span class="value">48 Ay</span><span class="label">Yatırım Geri Dönüş Süresi (ROI)</span></div>
+        </div>
+    </section>
+
+    <section id="kariyer" class="section-reveal">
+        <h2 class="section-title">İnsan Kaynakları ve Kariyer</h2>
+        <p>İz-Ester Kimya olarak gücümüzü çalışma arkadaşlarımızdan alıyoruz. Yenilikçi ve destekleyici İK politikalarımızla fark yaratıyoruz.</p>
+        <div class="hr-grid">
+            <div class="hr-card">
+                <h4>Sosyal İzinler</h4>
+                <p>Kadın çalışanlarımız için ayda 1 gün regl izni uygulayarak pozitif bir çalışma ortamı sunuyoruz.</p>
+            </div>
+            <div class="hr-card">
+                <h4>İstihdam Garantisi</h4>
+                <p>30 yaş ve altı erkek çalışanlarımız için askerlik sonrası işe dönüş imkanı sağlıyoruz.</p>
+            </div>
+            <div class="hr-card">
+                <h4>Kurumsal Ayrıcalıklar</h4>
+                <p>Anlaşmalı kreş, anaokulu, seyahat (ETS Tur) ve alışveriş alanlarında kurumsal indirimler sunuyoruz.</p>
+            </div>
+            <div class="hr-card">
+                <h4>Ek Maddi Destekler</h4>
+                <p>Yaz aylarında tüm çalışanlarımıza 13. ay maaşı desteği sağlıyor ve özel günlerde hediye paketleri iletiyoruz.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="iletisim" class="section-reveal">
+        <h2 class="section-title" style="color: var(--beyaz);">Bize Ulaşın</h2>
+        <div class="iletisim-info">
+            <p><strong>Merkez Tesis Adresi:</strong> Demirciler OSB, Refik Baydur Cd. 1/6, 41455 Dilovası / Kocaeli</p>
+            <p><strong>Kurumsal İletişim:</strong> <a href="mailto:izester@gmail.com">izester@gmail.com</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">
+            <a href="#home"><img src="logo.png" alt="İz-Ester Fabrika Logosu"></a>
+        </div>
+        <p>© 2026 İz-Ester Kimya Sanayi ve Ticaret A.Ş. | Türkiye - Tüm Hakları Saklıdır.</p>
+        <div class="footer-links">
+            <a href="#">KVKK Aydınlatma Metni</a> | 
+            <a href="#">Çerez Politikası</a> | 
+            <a href="#">Bilgi Toplumu Hizmetleri</a> | 
+            <a href="#">Kullanım Koşulları</a>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { rootMargin: "0px 0px -50px 0px", threshold: 0 });
+
+        document.querySelectorAll('.section-reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
