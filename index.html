@@ -64,10 +64,6 @@
         .sertifika-kart h4 { color: var(--lacivert); font-size: 24px; margin: 0 0 10px 0; font-weight: 700; }
         .sertifika-kart p { font-size: 15px; margin: 0; font-weight: 600;}
 
-        #process { background-color: var(--krem); min-height: 60vh;}
-        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .process-box { background-color: var(--beyaz); padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.03);}
-
         #paydaslar { background-color: var(--beyaz); text-align: center; min-height: 50vh;}
         .paydas-grid { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 60px; margin-top: 40px; }
         .paydas-logo img { max-width: 180px; max-height: 80px; object-fit: contain; filter: grayscale(100%) opacity(70%); transition: all 0.4s ease; }
@@ -88,10 +84,6 @@
         .ulke-etiketler { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 40px; }
         .ulke-etiket { background: rgba(255,255,255,0.1); padding: 12px 30px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.3); font-weight: 600; letter-spacing: 1px; transition: 0.3s; backdrop-filter: blur(5px);}
         .ulke-etiket:hover { background: var(--acik-mavi); color: var(--lacivert); transform: translateY(-3px);}
-
-        #economy { background-color: var(--krem); color: var(--metin); min-height: 60vh;}
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center; }
-        .stat-item .value { font-size: 48px; font-weight: 700; display: block; margin-bottom: 10px; color: var(--lacivert); }
 
         #kariyer { background-color: var(--beyaz); text-align: center; min-height: auto; padding-bottom: 50px;}
         .hr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px;}
@@ -126,7 +118,7 @@
             .btn-main { padding: 12px 25px; font-size: 14px; }
             .section-title { font-size: 28px; margin-bottom: 30px; }
             .about-container { grid-template-columns: 1fr; gap: 30px; }
-            .process-grid, .stats-grid, .hr-grid { grid-template-columns: 1fr; }
+            .hr-grid { grid-template-columns: 1fr; }
             .sertifika-kart { width: 100%; max-width: 300px; box-sizing: border-box; }
             .paydas-grid { gap: 30px; }
             .paydas-logo img { max-width: 120px; }
@@ -151,10 +143,8 @@
             <ul>
                 <li><a href="#about">Kurumsal</a></li>
                 <li><a href="#sertifikalar">Kalite</a></li>
-                <li><a href="#process">Tesis</a></li>
                 <li><a href="#paydaslar">Paydaşlar</a></li>
                 <li><a href="#kuresel">Küresel Ağ</a></li>
-                <li><a href="#economy">Yatırım</a></li>
                 <li><a href="#iletisim">İletişim</a></li>
             </ul>
         </nav>
@@ -210,31 +200,8 @@
         </div>
     </section>
 
-    <section id="process" class="section-reveal">
-        <h2 class="section-title">Teknik Kapasite ve Proses Tasarımı</h2>
-        <div class="process-grid">
-            <div class="process-box">
-                <h3>Üretim Metodu</h3>
-                <p>Tesisimizde <strong>Fischer Esterifikasyonu</strong> yöntemi ile global standartlarda üretim yapılmaktadır.</p>
-                <ul>
-                    <li><strong>Yıllık Kapasite:</strong> 65.000 Ton</li>
-                    <li><strong>Ürün Saflığı:</strong> %99,78 (a/a)</li>
-                </ul>
-            </div>
-            <div class="process-box">
-                <h3>Modern Reaktör Teknolojisi</h3>
-                <ul>
-                    <li><strong>Tip:</strong> CSTR (Sürekli Karıştırmalı Tank Reaktör)</li>
-                    <li><strong>Hacim:</strong> 7,68 m³</li>
-                    <li><strong>Malzeme:</strong> AISI 316 Kalite Paslanmaz Çelik</li>
-                    <li><strong>Katalizör:</strong> Sülfürik Asit</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
     <section id="paydaslar" class="section-reveal">
-        <h2 class="section-title">Kurumsal Paydaşlarımız</h2>
+        <h2 class="section-title">Kurumsal Müşterilerimiz</h2>
         <p style="margin-bottom: 20px;">Sektörün öncü markalarına yüksek saflıkta etil asetat tedarik etmekten gurur duyuyoruz.</p>
         <div class="paydas-grid">
             <div class="paydas-logo"><img src="loreal.png" alt="L'Oréal Logo"></div>
@@ -255,15 +222,6 @@
                 <span class="ulke-etiket">Japonya</span>
                 <span class="ulke-etiket">Endonezya</span>
             </div>
-        </div>
-    </section>
-
-    <section id="economy" class="section-reveal">
-        <h2 class="section-title" style="color: var(--lacivert);">Ekonomik Gücümüz ve Yatırımımız</h2>
-        <div class="stats-grid">
-            <div class="stat-item"><span class="value">142 M TL</span><span class="label">Toplam Tesis Yatırımı</span></div>
-            <div class="stat-item"><span class="value">35.2 M TL</span><span class="label">Öngörülen Yıllık Net Kâr</span></div>
-            <div class="stat-item"><span class="value">48 Ay</span><span class="label">Yatırım Geri Dönüş Süresi (ROI)</span></div>
         </div>
     </section>
 
